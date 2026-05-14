@@ -90,9 +90,9 @@
                         </div>
                         <div class="form-group checkbox-group">
                             <label class="checkbox-label" for="opt-in">
-                                <input type="checkbox" id="opt-in" name="optIn" required>
+                                <input type="checkbox" id="opt-in" name="optIn">
                                 <span class="checkmark"></span>
-                                <span class="checkbox-text">You've opted in to receive customer care messages from Celeritech regarding your inquiries or service requests. Msg frequency varies based on your support interactions. Msg &amp; data rates may apply. Reply STOP to unsubscribe, HELP for help. <span class="required">*</span></span>
+                                <span class="checkbox-text">By checking this box, you agree to receive customer care messages from Celeritech regarding your inquiries or service requests. Msg frequency varies based on your support interactions. Msg &amp; data rates may apply. Reply STOP to unsubscribe, HELP for help. Consent is not a condition of purchase. Your information will never be shared with third parties for marketing purposes. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</span>
                             </label>
                         </div>
                         <button type="submit" class="contact-submit-btn" id="contact-submit-btn">
@@ -118,8 +118,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Celeritech. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                     <a href="contact.html">Contact Us</a>
                 </div>
             </div>
@@ -130,13 +130,7 @@
     function handleContactSubmit(e) {
         e.preventDefault();
         var form = document.getElementById('contact-form');
-        var optIn = document.getElementById('opt-in');
         var btn = document.getElementById('contact-submit-btn');
-        if (!optIn.checked) {
-            optIn.closest('.checkbox-group').classList.add('error');
-            optIn.focus();
-            return false;
-        }
         btn.disabled = true;
         btn.querySelector('.btn-text').textContent = 'Sending...';
         setTimeout(function() {
@@ -145,9 +139,6 @@
         }, 1200);
         return false;
     }
-    document.getElementById('opt-in').addEventListener('change', function() {
-        if (this.checked) this.closest('.checkbox-group').classList.remove('error');
-    });
     </script>
 </body>
 </html>
