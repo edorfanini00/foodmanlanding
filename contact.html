@@ -135,6 +135,7 @@
         var btn = document.getElementById('contact-submit-btn');
         btn.disabled = true;
         btn.querySelector('.btn-text').textContent = 'Sending...';
+        oaiq("measure", "appointment_scheduled", { type: "customer_action" });
         setTimeout(function() {
             form.style.display = 'none';
             document.getElementById('form-success').style.display = 'flex';
