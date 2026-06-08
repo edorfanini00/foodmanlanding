@@ -58,6 +58,7 @@
             window.open(url, '_blank');
           }
         };
+        oaiq("measure", "appointment_scheduled", { type: "customer_action" });
         gtag('event', 'close_convert_lead', {
           'event_callback': callback,
           'event_timeout': 2000,
