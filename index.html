@@ -51,20 +51,14 @@
     <!-- Google tag (gtag.js) event - delayed navigation helper -->
     <script>
       function gtagSendEvent(url) {
-        var opened = false;
-        var callback = function () {
-          // gtag invokes event_callback once per configured destination
-          // (GA4, Google Ads, etc.), so guard to open only a single window.
-          if (opened) return;
-          opened = true;
-          if (typeof url === 'string') {
-            window.open(url, '_blank');
-          }
-        };
-        gtag('event', 'close_convert_lead', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-        });
+        // Open exactly one window synchronously. Opening inside gtag's
+        // event_callback caused multiple windows because gtag invokes the
+        // callback once per configured destination (GA4, Google Ads, etc.).
+        // Doing it here also keeps the click gesture intact for popup blockers.
+        if (typeof url === 'string') {
+          window.open(url, '_blank');
+        }
+        gtag('event', 'close_convert_lead');
         return false;
       }
     </script>
