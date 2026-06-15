@@ -51,7 +51,12 @@
     <!-- Google tag (gtag.js) event - delayed navigation helper -->
     <script>
       function gtagSendEvent(url) {
+        var opened = false;
         var callback = function () {
+          // gtag invokes event_callback once per configured destination
+          // (GA4, Google Ads, etc.), so guard to open only a single window.
+          if (opened) return;
+          opened = true;
           if (typeof url === 'string') {
             window.open(url, '_blank');
           }
