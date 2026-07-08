@@ -1659,6 +1659,23 @@ body {
     color: var(--primary-blue);
 }
 
+.footer-links a.footer-contact-cta {
+    background: var(--primary-blue);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: var(--border-radius-pill);
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+    margin-left: 8px;
+}
+
+.footer-links a.footer-contact-cta:hover {
+    color: #fff;
+    background: var(--primary-blue-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(255, 107, 0, 0.45);
+}
+
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 1200px) {
     .bento-grid {
